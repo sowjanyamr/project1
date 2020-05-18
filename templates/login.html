@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Login page
+{% endblock %}
+
+  {% block body %}
+  <p> Welcome {{ name }}</p>
+  <form action="{{ url_for('searchpage') }}" method="post">
+    <input type="text" name="name" placeholder="Enter your username">
+    <input type="password" name="password" placeholder="Enter password">
+    <button>Submit</button>
+  </form>
+  {% endblock %}

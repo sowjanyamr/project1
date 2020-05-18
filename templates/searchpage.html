@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Search page
+{% endblock %}
+
+  {% block body %}
+    <p>Welcome ,{{ name }}</p>
+    <form action="{{ url_for('searchpage') }}" method="post">
+      <input type="text" name="bookname" placeholder="Enter the name of book you want to search">
+      <button>Submit</button>
+    </form>
+    <a href="{{ url_for('logout') }}">Logout</a>
+  {% endblock %}
