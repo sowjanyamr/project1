@@ -6,8 +6,9 @@
 
   {% block body %}
     <p>Welcome ,{{ name }}</p>
-    <form action="{{ url_for('searchpage') }}" method="post">
-      <input type="text" name="bookname" placeholder="Enter the name of book you want to search">
+    <form action="{{ url_for('booksearch') }}" method="post">
+      <input type="text" name="isbn" placeholder="Enter ISBN to search">
+      <input type="text" name="bookauthorname" placeholder="Enter title/author to search">
       <button>Submit</button>
     </form>
     <a href="{{ url_for('logout') }}">Logout</a>

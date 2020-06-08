@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Error Page.
+{% endblock %}
+
+{% block body %}
+  <p>{{ headline }}.</p>
+  <a href="{{ url_for('searchpage') }}">Search Page</a>
+{% endblock %}

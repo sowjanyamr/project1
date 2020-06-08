@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    book results page
+{% endblock %}
+
+  {% block body %}
+  <div class="result">
+    <h1>Book Details</h1>
+      <ul>
+        {% for book in books %}
+          <li>ISBN: {{ book.isbn }}</li>
+          <li>AUTHOR: {{ book.author }}</li>
+          <li>TITLE: {{ book.title}} </li>
+          <li>PUBLICATION YEAR: {{ book.publication_year}} </li>
+        {% endfor %}
+      </ul>
+    </div>
+  <a href="{{ url_for('logout') }}">Logout</a>
+  <a href="{{ url_for('searchpage') }}">Search Page</a>
+{% endblock %}
