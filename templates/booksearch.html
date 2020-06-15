@@ -5,16 +5,20 @@
 {% endblock %}
 
   {% block body %}
-  <div class="result">
-    <h1>Book Details</h1>
-      <ul>
-        {% for book in books %}
-          <li>ISBN: {{ book.isbn }}</li>
-          <li>AUTHOR: {{ book.author }}</li>
-          <li>TITLE: {{ book.title}} </li>
-          <li>PUBLICATION YEAR: {{ book.publication_year}} </li>
-        {% endfor %}
-      </ul>
+        <form action="{{ url_for('booksearch',isbn=isbn) }}" method="GET">
+          <ul>
+            <h1>Book Details</h1>
+            {% for book in books %}
+              <li>ISBN: {{ book.isbn }}</li>
+              <li>AUTHOR: {{ book.author }}</li>
+              <li>TITLE: {{ book.title}} </li>
+              <li>PUBLICATION YEAR: {{ book.publication_year}} </li>
+            {% endfor %}
+            <input type="text" name="review" placeholder="Enter review">
+            <button type="button" name="button">Submit review</button>
+        </ul>
+        </form>
+
     </div>
   <a href="{{ url_for('logout') }}">Logout</a>
   <a href="{{ url_for('searchpage') }}">Search Page</a>

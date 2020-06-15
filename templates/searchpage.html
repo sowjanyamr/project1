@@ -2,14 +2,29 @@
 
 {% block heading %}
     Search page
+
 {% endblock %}
 
   {% block body %}
-    <p>Welcome ,{{ name }}</p>
-    <form action="{{ url_for('booksearch') }}" method="post">
+  {% for name in names %}
+    <p>Welcome ,{{ name.name }}</p>
+{% endfor %}
+    <form action="{{ url_for('searchpage') }}" method="post">
       <input type="text" name="isbn" placeholder="Enter ISBN to search">
       <input type="text" name="bookauthorname" placeholder="Enter title/author to search">
       <button>Submit</button>
     </form>
+    <div class="result">
+        <table>
+        <th>Book Name</th>
+        <th>Author Name</th>
+        <tr>
+          {% for book in books %}
+            <td><a href="{{ url_for('booksearch',isbn=book.isbn) }}">TITLE: {{ book.title}}</a></td>
+            <td>AUTHOR: {{ book.author }}</td>
+          {% endfor %}
+        </tr>
+      </table>
+
     <a href="{{ url_for('logout') }}">Logout</a>
   {% endblock %}
